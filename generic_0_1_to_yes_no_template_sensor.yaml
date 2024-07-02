@@ -12,11 +12,14 @@ blueprint:
     output_name:
       name: Output Sensor Name
       description: The name of the output sensor
-      default: "output_sensor_yes_no"
 
 trigger:
   - platform: state
     entity_id: !input source_entity
+
+variables:
+  source_entity: !input source_entity
+  output_name: !input output_name
 
 action:
   - service: input_text.set_value
